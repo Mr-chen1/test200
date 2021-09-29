@@ -1,26 +1,25 @@
 <template>
   <div>
-    <div class="clyBox">11111111</div>
-    <ul>
-      <router-link to='/films' custom v-slot='{navigate,isActive}'>
-        <li @click="navigate" :class="isActive?'clyactive':''">电影--{{isActive}}</li>
-      </router-link>
-      
-      <router-link to='/cinemas' custom v-slot='{navigate,isActive}'>
-        <li @click="navigate" :class="isActive?'clyactive':''">影院--{{isActive}}</li>
-      </router-link>
-
-      <router-link to='/center' custom v-slot='{navigate,isActive}'>
-        <li @click="navigate" :class="isActive?'clyactive':''">我的--{{isActive}}</li>
-      </router-link>
-    </ul>
-    <router-view></router-view>
+    <tabbar></tabbar>
+    <section>
+      <router-view></router-view>
+    </section>
+    
   </div>
 </template>
 
 <script>
+import Vue from 'vue';
+import Vant from 'vant';
+import 'vant/lib/index.css';
+
+Vue.use(Vant);
+
+import tabbar from './components/Tabbar.vue'
 export default {
-  
+  components:{
+    tabbar
+  }
 }
 </script>
 
@@ -29,13 +28,13 @@ export default {
   margin: 0;
   padding: 0;
 }
-  ul>.clyactive{
-    color:red
-  }
-  .clyBox{
-    width: 46.875rem;
-    height: 12.5rem;
-    background-color: yellow;
-
-  }
+html,body{
+  height: 100%;
+}
+ul{
+  list-style: none;
+}
+section{
+  padding-bottom: 2.7rem; /*底部加点高度防止图片被遮挡*/
+}
 </style>

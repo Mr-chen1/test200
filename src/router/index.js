@@ -7,6 +7,7 @@ import Order from '@/views/Order.vue'
 import Login from '@/views/Login.vue'
 import NowPlaying from '@/views/films/NowPlaying.vue'
 import ComingSoon from '@/views/films/ComingSoon.vue'
+import City from '@/views/City.vue'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
@@ -63,7 +64,12 @@ const routes=[
         meta:{
             isRequire:true
         }
-    },{
+    },
+    {
+        path:'/city',
+        component:City
+    },
+    {
         path:'*',
         redirect:'/films'
     }
